@@ -111,6 +111,7 @@ local plugins = {
     end,
     config = function()
       require "plugins.configs.lspconfig"
+      require "custom.plugins.lspconfig"
     end,
   },
 
@@ -175,6 +176,7 @@ local plugins = {
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     config = function()
       require "plugins.configs.nvimtree"
+      require "custom.plugins.nvimtree"
     end,
     setup = function()
       require("core.utils").load_mappings "nvimtree"

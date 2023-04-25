@@ -146,9 +146,9 @@ M.gitsigns = function()
       topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
       changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
     },
-    on_attach = function (bufnr)
+    on_attach = function(bufnr)
       utils.load_mappings("gitsigns", { buffer = bufnr })
-    end
+    end,
   }
 
   options = load_override(options, "lewis6991/gitsigns.nvim")
@@ -161,10 +161,13 @@ M.devicons = function()
   if present then
     require("base46").load_highlight "devicons"
 
-    local options = { override = require("nvchad_ui.icons").devicons }
-    options = require("core.utils").load_override(options, "nvim-tree/nvim-web-devicons")
+    local ok, icons = pcall(require, "nvchad_ui.icons")
+    if ok then
+      local options = { override = icons.devicons }
+      options = require("core.utils").load_override(options, "nvim-tree/nvim-web-devicons")
 
-    devicons.setup(options)
+      devicons.setup(options)
+    end
   end
 end
 

@@ -29,7 +29,11 @@ opt.mouse = "a"
 opt.number = true
 opt.numberwidth = 2
 opt.ruler = false
+opt.relativenumber = true
 
+-- mine
+opt.incsearch = false
+opt.scrolloff = 999
 -- disable nvim intro
 opt.shortmess:append "sI"
 
@@ -76,7 +80,7 @@ local default_plugins = {
   "optwin",
   "compiler",
   "bugreport",
-  "ftplugin",
+  -- "ftplugin",
 }
 
 for _, plugin in pairs(default_plugins) do

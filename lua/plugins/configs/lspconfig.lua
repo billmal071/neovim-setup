@@ -13,6 +13,15 @@ local utils = require "core.utils"
 -- export on_attach & capabilities for custom lspconfigs
 
 M.on_attach = function(client, bufnr)
+  -- inlay-hints
+  local ok, ih = pcall(require, "inlay-hints")
+  if not ok then
+    vim.notify "inlay-hints not installed, install from Packer"
+    return
+  end
+  -- local ih = require "inlay-hints"
+  ih.on_attach(client, bufnr)
+
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false
 
@@ -49,6 +58,9 @@ lspconfig.lua_ls.setup {
 
   settings = {
     Lua = {
+      hint = {
+        enable = true,
+      },
       diagnostics = {
         globals = { "vim" },
       },
