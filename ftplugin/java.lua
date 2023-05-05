@@ -57,7 +57,7 @@ local on_attach = function(client, bufnr)
     "<ESC><CMD>lua vim.lsp.buf.range_code_action()<CR>",
     { noremap = true, silent = true, buffer = bufnr, desc = "Code actions" }
   )
-  nnoremap("<space>f", function()
+  nnoremap("<space>fm", function()
     vim.lsp.buf.format { async = true }
   end, bufopts, "Format file")
 
@@ -191,3 +191,4 @@ require("jdtls.setup").add_commands()
 
 vim.bo.shiftwidth = 2
 vim.bo.tabstop = 2
+
