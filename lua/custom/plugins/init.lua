@@ -103,5 +103,44 @@ return {
   },
 
   ["hashivim/vim-terraform"] = {},
+
+    {
+    "folke/trouble.nvim",
+    config = function()
+      require "custom.trouble"
+    end,
+  },
+
+  {
+    "stevearc/aerial.nvim",
+    config = function()
+      require("aerial").setup {}
+    end,
+    lazy = false,
+  },
+
+  {
+    "rcarriga/nvim-dap-ui",
+    config = function()
+      require "custom.dapui"
+    end,
+  },
+
+  {
+    -- Better looking -- folding
+    "kevinhwang91/nvim-ufo",
+    dependencies = "kevinhwang91/promise-async",
+    config = function()
+      require "custom.ufo"
+    end,
+    lazy = false,
+  },
+
+  {
+    -- Popup notifications
+    "rcarriga/nvim-notify",
+    lazy = false,
+  },
+
   -- load it after nvim-lspconfig cuz we lazy loaded lspconfig
 }
